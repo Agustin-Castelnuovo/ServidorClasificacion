@@ -15,7 +15,9 @@ async def clasificar(file: UploadFile = File(...)):
 
     # Reenviar a tu PC
     try:
-        resp = requests.post(PC_URL, json={"imagen": img_base64})
+        resp = requests.post(PC_URL, json={"imagen": img_base64}, timeout=120)  # timeout largo
+        print("Respuesta cruda del PC:", resp.text) 
         return resp.json()
     except Exception as e:
-        return {"error": str(e)}
+       print("❌ Error al enviar la imagen a la PC:", e)
+       return {"error": str(e), "raw_response": resp.text if 'resp' in locals() else None}
