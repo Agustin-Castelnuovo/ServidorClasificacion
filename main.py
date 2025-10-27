@@ -5,7 +5,7 @@ import base64
 app = FastAPI()
 
 # URL de tu PC local (Ngrok o Tailscale)
-PC_URL = "https://nonqualifying-agnes-unattractive.ngrok-free.dev/clasificar_local"
+PC_URL = "https://barbless-jax-unerrant.ngrok-free.dev /clasificar_local"
 
 @app.post("/clasificar")
 async def clasificar(file: UploadFile = File(...)):
